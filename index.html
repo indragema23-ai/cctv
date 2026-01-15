@@ -1,14 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launcher CCTV Padalarang</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+header {
+  padding: 14px;
+  background: #020617;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+main {
+  padding: 14px;
+}
+
+button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 16px;
+  font-size: 17px;
+  border-radius: 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+}
+
+button:active {
+  background: #1d4ed8;
+  transform: scale(0.98);
+}
+
+#status {
+  margin: 12px 0 16px;
+  padding: 12px;
+  background: #020617;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+iframe {
+  width: 100%;
+  height: 55vh;
+  border: none;
+  border-radius: 14px;
+  background: #000;
+}
+</style>
 </head>
+
 <body>
 
-<button onclick="alert('TOMBOL DIKLIK')"
-        style="font-size:20px;padding:20px;">
-TEST KLIK
+<header>
+🚦 Launcher CCTV Padalarang (ATCS)
+</header>
+
+<main>
+
+<div id="status">
+⬇️ Pilih salah satu kamera favorit di bawah
+</div>
+
+<button onclick="openCam('TAGOG PADALARANG - BANDUNG')">
+📍 Tagog Padalarang – Bandung
 </button>
+
+<button onclick="openCam('PADALARANG - PURABAYA - TAGOG')">
+📍 Padalarang – Purabaya – Tagog
+</button>
+
+<button onclick="openCam('PADALARANG - GEDONG 5 BAWAH - TOL')">
+📍 Padalarang – Gedong 5 Bawah – Tol
+</button>
+
+<button onclick="openCam('PADALARANG GIANT - TOL')">
+📍 Padalarang Giant – Tol
+</button>
+
+<iframe id="atcs" src="https://atcs.bandungbaratkab.go.id/"></iframe>
+
+</main>
+
+<script>
+function openCam(name) {
+  const status = document.getElementById('status');
+  const iframe = document.getElementById('atcs');
+
+  // Paksa refresh iframe agar fokus (penting di iOS)
+  iframe.src = iframe.src;
+
+  // Feedback visual yang JELAS
+  status.innerHTML =
+    "✅ Dipilih:<br><b>" + name + "</b><br><br>" +
+    "➡️ Sekarang TAP video di bawah,<br>" +
+    "lalu buka dropdown kamera dan pilih nama di atas.";
+}
+</script>
 
 </body>
 </html>
