@@ -1,140 +1,93 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#020617">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Launcher CCTV Padalarang</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IGN HARDWARE – CCTV Padalarang</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
-}
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#020617">
 
-header {
-  padding: 14px;
-  background: #020617;
-  text-align: center;
-  font-weight: 600;
-  font-size: 18px;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-main {
-  padding: 14px;
-}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
 
-button {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 16px;
-  font-size: 17px;
-  border-radius: 12px;
-  border: none;
-  background: #2563eb;
-  color: white;
-}
+    header {
+      padding: 16px;
+      background: #020617;
+      text-align: center;
+      font-weight: 600;
+      font-size: 18px;
+    }
 
-button:active {
-  background: #1d4ed8;
-  transform: scale(0.98);
-}
+    main {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
 
-#status {
-  margin: 12px 0 16px;
-  padding: 12px;
-  background: #020617;
-  border-radius: 10px;
-  font-size: 15px;
-  line-height: 1.4;
-}
+    button.card {
+      background: #2563eb;
+      color: white;
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      border: none;
 
-iframe {
-  width: 100%;
-  height: 55vh;
-  border: none;
-  border-radius: 14px;
-  background: #000;
-}
-  .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 14px;
-}
+      /* iOS FIX */
+      appearance: none;
+      -webkit-appearance: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
 
-.card {
-  background: #2563eb;
-  color: white;
-  padding: 18px;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.card:active {
-  background: #1d4ed8;
-  transform: scale(0.97);
-}
-
-</style>
+    button.card:active {
+      background: #1d4ed8;
+      transform: scale(0.97);
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-🚦 IGN HARDWARE - Launcher CCTV Padalarang
+🚦 IGN HARDWARE – CCTV Padalarang
 </header>
 
 <main>
-
-<main class="grid">
-
-  <div class="card" onclick="openATCS('TAGOG PADALARANG - BANDUNG')">
+  <button class="card" onclick="openATCS()">
     📍 Tagog Padalarang – Bandung
-  </div>
+  </button>
 
-  <div class="card" onclick="openATCS('PADALARANG - PURABAYA - TAGOG')">
+  <button class="card" onclick="openATCS()">
     📍 Padalarang – Purabaya – Tagog
-  </div>
+  </button>
 
-  <div class="card" onclick="openATCS('PADALARANG - GEDONG 5 BAWAH - TOL')">
+  <button class="card" onclick="openATCS()">
     📍 Padalarang – Gedong 5 Bawah – Tol
-  </div>
+  </button>
 
-  <div class="card" onclick="openATCS('PADALARANG GIANT - TOL')">
+  <button class="card" onclick="openATCS()">
     📍 Padalarang Giant – Tol
-  </div>
-
-</main>
-
-
+  </button>
 </main>
 
 <script>
-function openCam(name) {
-  const status = document.getElementById('status');
-  const iframe = document.getElementById('atcs');
-
-  // Paksa refresh iframe agar fokus (penting di iOS)
-  iframe.src = iframe.src;
-
-  // Feedback visual yang JELAS
-  status.innerHTML =
-    "✅ Dipilih:<br><b>" + name + "</b><br><br>" +
-    "➡️ Sekarang TAP video di bawah,<br>" +
-    "lalu buka dropdown kamera dan pilih nama di atas.";
-}
-  <script>
-function openATCS(label) {
-  localStorage.setItem("lastCam", label);
-  window.location.href = "https://atcs.bandungbaratkab.go.id/";
-}
-</script>
-
+  function openATCS() {
+    window.location.href = "https://atcs.bandungbaratkab.go.id/";
+  }
 </script>
 
 </body>
