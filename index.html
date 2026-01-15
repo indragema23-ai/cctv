@@ -58,6 +58,28 @@ iframe {
   border-radius: 14px;
   background: #000;
 }
+  .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 14px;
+}
+
+.card {
+  background: #2563eb;
+  color: white;
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.card:active {
+  background: #1d4ed8;
+  transform: scale(0.97);
+}
+
 </style>
 </head>
 
@@ -106,6 +128,13 @@ function openCam(name) {
     "➡️ Sekarang TAP video di bawah,<br>" +
     "lalu buka dropdown kamera dan pilih nama di atas.";
 }
+  <script>
+function openATCS(label) {
+  localStorage.setItem("lastCam", label);
+  window.location.href = "https://atcs.bandungbaratkab.go.id/";
+}
+</script>
+
 </script>
 
 </body>
